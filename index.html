@@ -13,7 +13,7 @@
 
       <header>
         <div class="navbar navbar-dark bg-dark shadow-sm">
-          <h1 style="color:#fff" class="mx-auto">Weather Dashboard</h1>
+          <h1 class="mx-auto color-white">Weather Dashboard</h1>
         </div>
       </header>
   
@@ -45,55 +45,63 @@
             <div class="col-9">
               
               <div class="row m-3">
-                <div class="card" style="width: 100%">
+                <div class="card">
                   <div class="card-body">
                     <h3 class="card-title" id="CityName"></h3>
                     <p class="card-text" id="Temp"></p>
                     <p class="card-text" id="Hum"></p>
                     <p class="card-text" id="Wind"></p>
-                    <p class="card-text" id="UV"></p>
+                    <p class="card-text">UV Index: <span class="bg-danger p-2" id="UV"></span></p>
                   </div>
                 </div>
               </div>
 
               <h1>5-Day Forecast</h1>
-              <div class="row m-3" style="color:white;">
+              <div class="row mt-3 color-white">
 
                 <div class="card-deck">
-                  <div class="card m-1" style="background-color:blue;">
+                  <div class="card m-1 bg-blue">
                     <div class="card-body">
                       <h5 class="card-title" id="date0"></h5>
-                      <p class="card-text" id="condition0"></p>
+                      <img class="card-text" id="condition0" alt="weather icon"></img>
                       <p class="card-text" id="temperature0"></p>
                       <p class="card-text" id="humidity0"></p>
                     </div>
                   </div>
 
-                  <div class="card m-1" style="background-color:blue;">
+                  <div class="card m-1 bg-blue">
                     <div class="card-body">
                       <h5 class="card-title" id="date1"></h5>
-                      <p class="card-text">With supporting text</p>
+                      <img class="card-text" id="condition1" alt="weather icon"></img>
+                      <p class="card-text" id="temperature1"></p>
+                      <p class="card-text" id="humidity1"></p>
                     </div>
                   </div>
 
-                  <div class="card m-1" style="background-color:blue;">
+                  <div class="card m-1 bg-blue">
                     <div class="card-body">
                       <h5 class="card-title" id="date2"></h5>
-                      <p class="card-text">With supporting text</p>
+                      <img class="card-text" id="condition2" alt="weather icon"></img>
+                      <p class="card-text" id="temperature2"></p>
+                      <p class="card-text" id="humidity2"></p>
                     </div>
                   </div>
 
-                  <div class="card m-1" style="background-color:blue;">
+                  <div class="card m-1 bg-blue">
                     <div class="card-body">
                       <h5 class="card-title" id="date3"></h5>
-                      <p class="card-text">With supporting text.</p>
+                      <img class="card-text" id="condition3" alt="weather icon"></img>
+                      <p class="card-text" id="temperature3"></p>
+                      <p class="card-text" id="humidity3"></p>
                     </div>
                   </div>
 
-                  <div class="card m-1" style="background-color:blue;">
+                  <div class="card m-1 bg-blue">
                     <div class="card-body">
                       <h5 class="card-title" id="date4"></h5>
-                      <p class="card-text">With supporting text.</p>
+                      <img class="card-text" id="condition4" alt="weather icon"></img>
+                      <p class="card-text" id="temperature4"></p>
+                      <p class="card-text" id="humidity4"></p>
                     </div>
                   </div>
                 </div>

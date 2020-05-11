@@ -78,10 +78,12 @@ console.log(queryUrl)
 // Display the city data
 function displayWeather (cityData){
   var date = moment().format('l');
-  var condition = cityData.weather[0].main; 
-  var cityName = cityData.name + " (" + date + ") " + condition;
-  $("#CityName").text(cityName);
-
+  var condition = cityData.weather[0].icon; 
+  var cityName = cityData.name + " (" + date + ") ";
+  var cityNameEl = $("#CityName");
+  cityNameEl.html("");
+  cityNameEl.text(cityName);
+  cityNameEl.append($('<img src="https://openweathermap.org/img/w/'+ condition +'.png" alt="weather icon"></img>'));
 
   var temp = "Temperature: " + cityData.main.temp +" F";
   var hum = "Humidity: " + cityData.main.humidity + " %";
@@ -115,7 +117,7 @@ function fetchUV (coord){
 //Display the UV data
 function displayUVData(UVData){
   console.log (UVData); 
-  var uv ="UV Index: " + UVData.value;
+  var uv = UVData.value;
   $("#UV").text(uv);
 }
 
@@ -124,7 +126,8 @@ function fetchForcast (coord){
   var queryParams = $.param({
     appid:"ec0edd488270df0ee783102d43a65daf",
     lat:coord.lat,
-    lon:coord.lon 
+    lon:coord.lon,
+    units:"imperial"
     
   })
   console.log(queryParams)
@@ -142,11 +145,22 @@ function fetchForcast (coord){
 //Display the forecast data
 function displayForcast (forcastData){
   console.log (forcastData); 
-for( var i=0; i<forcastData.list.length;i++){
- var data = forcastData.list[i];
- if( data.dt_txt.indexOf("12:00:00") != -1){
-   
- }
+  var cardNo = 0;
+  for( var i=0; i<forcastData.list.length;i++){
+    var data = forcastData.list[i];
+    if( data.dt_txt.indexOf("12:00:00") != -1){
+      var condition = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+      var temp = data.main.temp + " F";
+      var hum = data.main.humidity + " %";
+      var date = moment(data.dt_txt, "YYYY-MM-DD hh:mm:ss").format("l");
+      $("#date" + cardNo).text (date);
+      $("#temperature" + cardNo).text(temp);
+      $("#humidity" + cardNo).text(hum);
+      $("#condition" + cardNo).attr("src",condition);
+      cardNo++;
+    }
+
+  }
 }
 
 
@@ -160,3 +174,4 @@ function addNewCity(city){
   }
   showHistory();
 }
+fetchWeather("Seattle");

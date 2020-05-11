@@ -1,4 +1,9 @@
-h1{
-
- 
+.card, .card-deck{
+    width: 100%;
+}
+.bg-blue{
+    background-color:blue;
+}
+.color-white {
+    color: #fff;
 }
